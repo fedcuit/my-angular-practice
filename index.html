@@ -11,17 +11,27 @@
   <script type="text/javascript" charset="utf-8" src="js/lib/bootstrap.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/lib/angular.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/app/app.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/app/index/service.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/app/index/controller.js"></script>
 </head>
 <body ng-app="MyApp">
   <div class="container">
-    <div class="events-table">
+    <div class="events-table" ng-controller="eventsController" ng-init="init()">
       <table class="table table-striped table-bordered">
-        <th>Name</th>
-        <th>Time</th>
-        <th>Initiator</th>
-        <th>Category</th>
-        <th>Description</th>
+        <tr>
+                <th>Name</th>
+                <th>Time</th>
+                <th>Initiator</th>
+                <th>Category</th>
+                <th>Description</th>
+        </tr>
+        <tr ng-repeat="event in events">
+          <td>{{event.name}}</td>
+          <td>{{event.time}}</td>
+          <td>{{event.initiator}}</td>
+          <td>{{event.category}}</td>
+          <td>{{event.description}}</td>
+        </tr>
       </table>
     </div>
   </div>
