@@ -16,15 +16,21 @@
 </head>
 <body ng-app="MyApp">
   <div class="container">
+    <div class="search-bar">
+      <div class="pull-right">
+        <label for="">Search:</label>
+        <input id="" type="search" name="">
+      </div>
+    </div>
     <div class="events-table" ng-controller="eventsController" ng-init="init()">
       <table class="table table-striped table-bordered">
         <tr>
-                <th>No</th>
-                <th>Name</th>
-                <th>Time</th>
-                <th>Initiator</th>
-                <th>Category</th>
-                <th>Description</th>
+          <th>No</th>
+          <th>Name</th>
+          <th>Time</th>
+          <th>Initiator</th>
+          <th>Category</th>
+          <th>Description</th>
         </tr>
         <tr ng-repeat="event in events">
           <td>{{$index}}</td>
