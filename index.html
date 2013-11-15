@@ -14,15 +14,15 @@
   <script type="text/javascript" charset="utf-8" src="js/app/index/service.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/app/index/controller.js"></script>
 </head>
-<body ng-app="MyApp">
+<body ng-app="MyApp" ng-controller="eventsController" ng-init="init()">
   <div class="container">
     <div class="search-bar">
       <div class="pull-right">
         <label for="">Search:</label>
-        <input id="" type="search" name="">
+        <input id="" type="text" name="" ng-model="search.$">
       </div>
     </div>
-    <div class="events-table" ng-controller="eventsController" ng-init="init()">
+    <div class="events-table">
       <table class="table table-striped table-bordered">
         <tr>
           <th>No</th>
@@ -32,7 +32,7 @@
           <th>Category</th>
           <th>Description</th>
         </tr>
-        <tr ng-repeat="event in events">
+        <tr ng-repeat="event in events | filter: search">
           <td>{{$index}}</td>
           <td>{{event.name}}</td>
           <td>{{event.time}}</td>
