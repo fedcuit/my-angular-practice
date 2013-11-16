@@ -13,6 +13,7 @@
   <script type="text/javascript" charset="utf-8" src="js/app/app.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/app/index/service.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/app/index/controller.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/app/index/directive.js"></script>
 </head>
 <body ng-app="MyApp" ng-controller="eventsController" ng-init="init()">
   <div class="container">
@@ -31,6 +32,7 @@
           <th>Initiator</th>
           <th>Category</th>
           <th>Description</th>
+          <th>Action</th>
         </tr>
         <tr ng-repeat="event in events | filter: search">
           <td>{{$index}}</td>
@@ -39,6 +41,7 @@
           <td>{{event.initiator}}</td>
           <td>{{event.category}}</td>
           <td>{{event.description}}</td>
+          <td><delete-button close="close($index)"/></td>
         </tr>
       </table>
     </div>

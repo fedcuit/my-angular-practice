@@ -8,5 +8,9 @@ MyApp.controller("eventsController",
       $scope.init = function() {
         eventsService.events(initEvents);
       };
+
+      $scope.close = function(index) {
+        $scope.events.splice(index, 1);
+      };
     }
     ]);
