@@ -34,7 +34,7 @@
           <th>Description</th>
           <th>Action</th>
         </tr>
-        <tr ng-repeat="event in events | filter: search" active-on-hover>
+        <tr ng-repeat="event in events | filter: search" ng-mouseenter="active = true;" ng-class="{success: active}" ng-mouseleave="active = false;" ng-init="active = false;">
           <td>{{$index}}</td>
           <td>{{event.name}}</td>
           <td>{{event.time}}</td>
