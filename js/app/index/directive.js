@@ -12,3 +12,18 @@ MyApp.directive('deleteButton', [
       };
     }
     ]);
+
+
+MyApp.directive('activeOnHover', [
+    function() {
+      return {
+        link: function($scope, element, attr) {
+          element.hover(function() {
+            element.addClass('success');
+          }, function() {
+            element.removeClass('success');
+          });
+        }
+      };
+    }
+    ]);
