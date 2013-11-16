@@ -2,9 +2,9 @@ MyApp.directive('deleteButton', [
     function() {
       return {
         restrict: 'E',
-        template: '<button type="button" class="btn btn-danger btn-xs" ng-click="close()">Delete</button>',
+        template: '<button type="button" class="btn btn-danger btn-xs" ng-click="remove()">Delete</button>',
         scope: {
-          close: '&'
+          remove: '&'
         },
         replace: true,
         link: function($scope, element, attr) {

@@ -41,7 +41,7 @@
           <td>{{event.initiator}}</td>
           <td>{{event.category}}</td>
           <td>{{event.description}}</td>
-          <td ng-mouseenter="danger = true;" ng-mouseleave="danger = false;"><delete-button close="close($index)"/></td>
+          <td ng-mouseenter="danger = true;" ng-mouseleave="danger = false;"><delete-button remove="remove($index)"/></td>
         </tr>
       </table>
     </div>

@@ -9,7 +9,7 @@ MyApp.controller("eventsController",
         eventsService.events(initEvents);
       };
 
-      $scope.close = function(index) {
+      $scope.remove = function(index) {
         $scope.events.splice(index, 1);
       };
     }
