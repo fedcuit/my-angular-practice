@@ -1,6 +1,6 @@
 MyApp.controller("eventsController", 
-    ["$scope", "eventsService",
-    function($scope, eventsService) {
+    ["$scope", "$compile",  "eventsService",
+    function($scope, $compile, eventsService) {
       var initEvents = function(events) {
         $scope.events = events;
       };

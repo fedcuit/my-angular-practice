@@ -12,3 +12,17 @@ MyApp.directive('deleteButton', [
       };
     }
     ]);
+
+MyApp.directive('viewable', 
+    ["$compile",
+    function($compile) {
+      return {
+        link: function($scope, element, attr) {
+                element.on('dblclick', function() {
+                  $compile(angular.element('.modal'))($scope).modal('show');
+                  $scope.$apply();
+                });
+        }
+      };
+    }
+    ]);
