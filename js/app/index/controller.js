@@ -1,12 +1,10 @@
 MyApp.controller("eventsController", 
     ["$scope", "$compile",  "eventsService",
     function($scope, $compile, eventsService) {
-      var initEvents = function(events) {
-        $scope.events = events;
-      };
-
       $scope.init = function() {
-        eventsService.events(initEvents);
+        eventsService.events().then(function(response) {
+          $scope.events = response.data;
+        });
       };
 
       $scope.remove = function(index) {
