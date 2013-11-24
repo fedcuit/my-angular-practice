@@ -14,6 +14,7 @@
   <script type="text/javascript" charset="utf-8" src="js/app/index/service.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/app/index/controller.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/app/index/directive.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/app/index/filter.js"></script>
 </head>
 <body ng-app="MyApp" ng-controller="eventsController" ng-init="init()">
   <div class="container">
@@ -34,7 +35,7 @@
           <th>Description</th>
           <th>Action</th>
         </tr>
-        <tr ng-repeat="event in events | filter: search"
+        <tr ng-repeat="event in events | filter: search | startFrom: pageSize * (currentPage - 1) | limitTo: pageSize"
           ng-mouseenter="active = true;"
           ng-mouseleave="active = false;"
           ng-class="{success: active, danger: danger}"
@@ -50,6 +51,15 @@
           <td ng-mouseenter="danger = true;" ng-mouseleave="danger = false;"><delete-button remove="remove($index)"/></td>
         </tr>
       </table>
+    </div>
+    <div class="pull-right">
+      <ul class="pagination">
+        <li class="active"><a href="">First</a></li>
+        <li class="active"><a href="">Previous</a></li>
+        <li class="active"><a href="">Current</a></li>
+        <li class="active"><a href="">Next</a></li>
+        <li class="active"><a href="">Last</a></li>
+      </ul>
     </div>
     <div class="modal fade">
       <div class="modal-dialog">
