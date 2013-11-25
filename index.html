@@ -35,7 +35,7 @@
           <th>Description</th>
           <th>Action</th>
         </tr>
-        <tr ng-repeat="event in events | filter: search | startFrom: pageSize * (currentPage - 1) | limitTo: pageSize"
+        <tr ng-repeat="event in events | filter: search | startFrom: pageSize * currentPage | limitTo: pageSize"
           ng-mouseenter="active = true;"
           ng-mouseleave="active = false;"
           ng-class="{success: active, danger: danger}"
@@ -52,13 +52,15 @@
         </tr>
       </table>
     </div>
-    <div class="pull-right">
-      <ul class="pagination">
-        <li class="active"><a href="">First</a></li>
-        <li class="active"><a href="">Previous</a></li>
-        <li class="active"><a href="">Current</a></li>
-        <li class="active"><a href="">Next</a></li>
-        <li class="active"><a href="">Last</a></li>
+    <div>
+      <div class="pull-left">
+        {{currentPage}} of {{pageNumbers}}
+      </div>
+      <ul class="pagination pull-right">
+        <li ng-class="{disabled: firstPage()}" ><a ng-click="first()"href="">First</a></li>
+        <li ng-class="{disabled: firstPage()}" ><a ng-click="previous()" href="">Previous</a></li>
+        <li ng-class="{disabled: lastPage()}" ><a ng-click="next()" href="">Next</a></li>
+        <li ng-class="{disabled: lastPage()}" ><a ng-click="last()" href="">Last</a></li>
       </ul>
     </div>
     <div class="modal fade">
